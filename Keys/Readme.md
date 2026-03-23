@@ -1,4 +1,4 @@
-# DBMS Keys — Complete Reference
+# DBMS Keys - Complete Reference
 
 A complete reference guide for all keys in Database Management Systems.
 There are many types of keys discussed in theory, but in practice, **10 keys** are commonly used.
@@ -34,13 +34,13 @@ While database theory defines many types of keys, the following 10 are standard 
 | 1 | Primary Key | Yes |
 | 2 | Candidate Key | Yes (conceptually) |
 | 3 | Super Key | Yes (conceptually) |
-| 4 | Alternate Key | Yes — via `UNIQUE NOT NULL` |
-| 5 | Foreign Key | Yes — via `FOREIGN KEY` |
-| 6 | Composite Key | Yes — via multi-column `PRIMARY KEY` |
-| 7 | Surrogate Key | Yes — via `AUTO_INCREMENT` |
-| 8 | Natural Key | Yes — use real-world data as PK |
-| 9 | Unique Key | Yes — via `UNIQUE` |
-| 10 | Partial Key | Yes — via composite PK on weak entity |
+| 4 | Alternate Key | Yes - via `UNIQUE NOT NULL` |
+| 5 | Foreign Key | Yes - via `FOREIGN KEY` |
+| 6 | Composite Key | Yes - via multi-column `PRIMARY KEY` |
+| 7 | Surrogate Key | Yes - via `AUTO_INCREMENT` |
+| 8 | Natural Key | Yes - use real-world data as PK |
+| 9 | Unique Key | Yes - via `UNIQUE` |
+| 10 | Partial Key | Yes - via composite PK on weak entity |
 
 ---
 
@@ -80,11 +80,11 @@ CREATE TABLE students (
 
 ### Definition
 A **minimal set of attributes** that can uniquely identify a row.
-A table can have multiple candidate keys — one is chosen as the primary key, and the rest become alternate keys.
+A table can have multiple candidate keys - one is chosen as the primary key, and the rest become alternate keys.
 
 ### Use Case
 Used during database design to identify all possible primary key options.
-Example: In an Employees table, both `emp_id` and `email` can uniquely identify a row — both are candidate keys.
+Example: In an Employees table, both `emp_id` and `email` can uniquely identify a row - both are candidate keys.
 
 ### Syntax
 
@@ -103,7 +103,7 @@ CREATE TABLE employees_ck (
 
 ### Rules
 - Must be unique
-- Must be minimal — no redundant columns
+- Must be minimal - no redundant columns
 - Cannot be NULL
 - Any one of the candidate keys can be chosen as the primary key
 
@@ -118,7 +118,7 @@ Every candidate key is a super key, but not every super key is a candidate key.
 
 ### Use Case
 Used in theoretical database design to understand all possible combinations that can uniquely identify a row.
-Example: `{product_id}`, `{barcode}`, `{product_id, name}`, `{product_id, barcode, category}` — all are super keys.
+Example: `{product_id}`, `{barcode}`, `{product_id, name}`, `{product_id, barcode, category}` - all are super keys.
 
 ### Syntax
 
@@ -151,7 +151,7 @@ CREATE TABLE products (
 
 ### Definition
 All candidate keys **that were not chosen as the primary key** are called alternate keys.
-They are still unique and not null — just not the official identifier of the table.
+They are still unique and not null - just not the official identifier of the table.
 
 ### Use Case
 Used when a table has multiple unique identifiers and you want to enforce uniqueness on non-primary columns.
@@ -223,7 +223,7 @@ CREATE TABLE employees_fk (
 ### Rules
 - Value must exist in the referenced (parent) table
 - Can be NULL (unless explicitly restricted)
-- Can repeat — multiple rows can have the same FK value
+- Can repeat - multiple rows can have the same FK value
 - `ON DELETE CASCADE` / `ON UPDATE CASCADE` control what happens when parent record is deleted or updated
 
 ---
@@ -236,7 +236,7 @@ No single column alone is sufficient — only the combination is unique.
 
 ### Use Case
 Common in junction tables that resolve many-to-many relationships.
-Example: In an Attendance table, a student can attend multiple subjects and a subject can have multiple students — so `(student_id, subject_id)` together form the composite key.
+Example: In an Attendance table, a student can attend multiple subjects and a subject can have multiple students so `(student_id, subject_id)` together form the composite key.
 
 ### Syntax
 
@@ -300,7 +300,7 @@ INSERT INTO orders (customer_name, product, amount, order_date) VALUES
 ## 8. Natural Key
 
 ### Definition
-A key that comes from the **real-world data itself** — like an Aadhaar number, PAN card, passport number, or email address.
+A key that comes from the **real-world data itself** - like an Aadhaar number, PAN card, passport number, or email address.
 It has business meaning and exists independently of the database.
 
 ### Use Case
@@ -338,7 +338,7 @@ A table can have multiple unique keys.
 
 ### Use Case
 Used when a column must not have duplicates but is not the main identifier.
-Example: `username` and `phone` in a Users table — both must be unique, but `user_id` is the primary key.
+Example: `username` and `phone` in a Users table - both must be unique, but `user_id` is the primary key.
 
 ### Syntax
 
@@ -368,11 +368,11 @@ CREATE TABLE users (
 
 ### Definition
 An attribute of a **weak entity** that is unique only within the scope of its owner (strong) entity.
-A weak entity cannot be uniquely identified by its own attributes alone — it depends on the owner entity's primary key.
+A weak entity cannot be uniquely identified by its own attributes alone - it depends on the owner entity's primary key.
 
 ### Use Case
 Used when a dependent record only makes sense in the context of a parent record.
-Example: A dependent (family member) of an employee is identified by `dep_no`, but that number is only unique per employee — not across all employees.
+Example: A dependent (family member) of an employee is identified by `dep_no`, but that number is only unique per employee - not across all employees.
 
 ### Syntax
 
@@ -414,12 +414,12 @@ CREATE TABLE dependents (
 
 ### Definition
 A column used for **searching or retrieving records** but not necessarily unique.
-It does not identify a row — it is used to speed up queries using an index.
+It does not identify a row - it is used to speed up queries using an index.
 Implemented using `INDEX` in MySQL.
 
 ### Use Case
 Used to optimize search/filter queries on frequently queried columns.
-Example: Searching employees by `dept` — the department column is a secondary key.
+Example: Searching employees by `dept` - the department column is a secondary key.
 
 ### Syntax
 
@@ -447,7 +447,7 @@ SHOW INDEX FROM employees_sk;
 - Does not need to be unique
 - Can contain duplicate values
 - Used for performance optimization, not for identification
-- Implemented using `INDEX` — not enforced like primary or unique keys
+- Implemented using `INDEX` - not enforced like primary or unique keys
 
 ---
 
@@ -464,7 +464,7 @@ SHOW INDEX FROM employees_sk;
 | Surrogate Key | Yes | No | Only 1 | `AUTO_INCREMENT` |
 | Natural Key | Yes | No | Only 1 | `PRIMARY KEY` |
 | Unique Key | Yes | One NULL | Multiple | `UNIQUE` |
-| Partial Key | Only within owner | No | — | Composite `PRIMARY KEY` |
+| Partial Key | Only within owner | No | - | Composite `PRIMARY KEY` |
 | Secondary Key | No | Yes | Multiple | `INDEX` |
 
 ---
