@@ -1,27 +1,28 @@
-Create database LearnKeys;
-use LearnKeys;
-
--- Primary Key Implementation
-Create table employees(
-	emp_id int primary key,
-    name varchar(50),
-    department varchar(50),
-    salary int,
-    age int
+CREATE DATABASE IF NOT EXISTS learnkeys;
+USE learnkeys;
+ 
+-- ============================================================
+-- PRIMARY KEY
+-- ============================================================
+ 
+CREATE TABLE students (
+    student_id  INT,
+    name        VARCHAR(100),
+    email       VARCHAR(100),
+    dept        VARCHAR(50),
+    age         INT,
+ 
+    PRIMARY KEY (student_id)
 );
-
-insert into employees values
-(1, 'Amit', 'IT', 50000, 25),
-(2, 'Rahul', 'HR', 40000, 26),
-(3, 'Priya', 'IT', 55000, 24),
-(4, 'Sneha', 'Finance', 60000, 27),
-(5, 'Karan', 'IT', 52000, 28),
-(6, 'Neha', 'HR', 45000, 25),
-(7, 'Rabi', 'Finance', 58000, 29),
-(8, 'Pooja', 'IT', 53000, 23),
-(9, 'Arjun', 'HR', 470000, 26),
-(10, 'Meena', 'Finance', 61000, 30);
-
-
-
-
+ 
+INSERT INTO students VALUES
+(1,  'Aarav Sharma', 'aarav@uni.edu',  'CS',      20),
+(2,  'Priya Mehta',  'priya@uni.edu',  'IT',      21),
+(3,  'Rahul Joshi',  'rahul@uni.edu',  'CS',      22),
+(4,  'Sneha Patel',  'sneha@uni.edu',  'Math',    20),
+(5,  'Karan Singh',  'karan@uni.edu',  'Physics', 23),
+(6,  'Ananya Das',   'ananya@uni.edu', 'IT',      21),
+(7,  'Rohan Gupta',  'rohan@uni.edu',  'CS',      22),
+(8,  'Divya Rao',    'divya@uni.edu',  'Math',    20),
+(9,  'Arjun Nair',   'arjun@uni.edu',  'Physics', 24),
+(10, 'Pooja Iyer',   'pooja@uni.edu',  'CS',      21);

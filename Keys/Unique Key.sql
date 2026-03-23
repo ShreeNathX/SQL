@@ -1,22 +1,30 @@
-use LearnKeys;
+CREATE DATABASE IF NOT EXISTS learnkeys;
+USE learnkeys;
 
--- Unique Key (No duplicates allowed)
-Create table users(
-	user_id int, 
-    username varchar(50),
-    email varchar(100),
-    phone varchar(15),
-    city varchar(50)
+-- ============================================================
+-- UNIQUE KEY
+-- ============================================================
+ 
+CREATE TABLE users (
+    user_id   INT AUTO_INCREMENT,
+    username  VARCHAR(50)  NOT NULL,
+    phone     VARCHAR(15),             -- Allows one NULL
+    city      VARCHAR(50),
+    plan      VARCHAR(20),
+ 
+    PRIMARY KEY (user_id),
+    UNIQUE (username),                 -- Unique Key
+    UNIQUE (phone)                     -- Unique Key (one NULL allowed)
 );
-
-insert into users values
-(1, "Amit Sharma", "amit.sharma@gmail.com", '9876543210', 'Dheli'),
-(2, "Rahul  Verma", "rahul.verma@gmail.com", '9765432108', "Mumbai"),
-(3, 'Priya Singh', 'priya.singh@gmail.com', '9988776655', 'Pune'),
-(4, 'Sneha Patel', 'sneha.patel@gmail.com', '9876540123', 'Indore'),
-(5, 'Karan Mehta', 'karan.mehta@gmail.com', '9012345678', 'Bhopal'),
-(6, "Neha Gupta", "neha.gupta@gmail.com", "9854321708", "Dheli"),
-(7, 'Ravi Kumar', 'ravi.kumar@gmail.com', "9977663328", "Mumbai"),
-(8, 'Pooja Jain', "pooja.jain@gmail.com", '9076904567', "Pune"),
-(9, "Arjun Yadav", "arjun.yadav@gmail.com", "9876456723", "Indore"),
-(10, 'Meena Das', 'meena.das@gmail.com', "9856236756", 'Bhopal');
+ 
+INSERT INTO users (username, phone, city, plan) VALUES
+('aarav_s',  '9876543210', 'Delhi',     'Pro'),
+('priya_m',  '9123456789', 'Mumbai',    'Free'),
+('rahul_j',  '9988776655', 'Pune',      'Pro'),
+('sneha_p',  NULL,         'Chennai',   'Free'),
+('karan_s',  '9001122334', 'Kolkata',   'Pro'),
+('ananya_d', '9556677889', 'Hyderabad', 'Free'),
+('rohan_g',  '9443322110', 'Bangalore', 'Pro'),
+('divya_r',  '9771234567', 'Jaipur',    'Free'),
+('arjun_n',  '9654321098', 'Ahmedabad', 'Pro'),
+('pooja_i',  '9321098765', 'Bhopal',    'Free');
