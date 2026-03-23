@@ -2,7 +2,7 @@
 
 A complete reference guide for all keys in Database Management Systems.
 There are many types of keys discussed in theory, but in practice, **10 keys** are commonly used.
-This repository covers all 10 standard keys with definitions, use cases, and syntax — plus Secondary Key as a bonus reference.
+This repository covers all 10 standard keys with definitions, use cases, and syntax - plus Secondary Key as a bonus reference.
 
 ---
 
@@ -232,7 +232,7 @@ CREATE TABLE employees_fk (
 
 ### Definition
 A primary key made up of **two or more columns** whose combined value uniquely identifies a row.
-No single column alone is sufficient — only the combination is unique.
+No single column alone is sufficient - only the combination is unique.
 
 ### Use Case
 Common in junction tables that resolve many-to-many relationships.
@@ -483,6 +483,6 @@ mysql -u root -p < dbms_keys_clean.sql
 
 ## References
 
-- Ramez Elmasri & Shamkant Navathe — *Fundamentals of Database Systems*
-- C.J. Date — *An Introduction to Database Systems*
-- MySQL 8.0 Reference Manual — https://dev.mysql.com/doc/
+- Ramez Elmasri & Shamkant Navathe -- *Fundamentals of Database Systems*
+- C.J. Date -- *An Introduction to Database Systems*
+- MySQL 8.0 Reference Manual -- https://dev.mysql.com/doc/
