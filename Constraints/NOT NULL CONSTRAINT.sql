@@ -6,7 +6,7 @@ USE LearnConstraints;
 -- ============================================================
 
 create table student(
-	Student_ID int primary key,
+	Student_ID int,
     name varchar(50) not null				-- Row should be filled otherwise throw error
 );
 
